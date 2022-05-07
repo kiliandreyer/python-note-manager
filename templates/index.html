@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Note Manager: View{% endblock %}</title>
+</head>
+<body>
+    <div id="content">
+    {% block content %}
+        <h1>Note Manager: View</h1>
+        <h3>Current Date: {{ date }}</h3>
+        <form action="/" method="post">
+            <input type="text" name="title">
+            <input type="text" name="text">
+            <input type="submit">
+        </form>
+        <div id="notes">
+            {% for row in notes %}
+            <p>{{ row }}</p>
+            {% endfor %}
+        </div>
+        <button onclick={{ clear_table() }}>Clear</button>
+    {% endblock %}
+    </div>
+</body>
+</html>
